@@ -28,9 +28,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
-
 body {
   background: var(--navy);
   color: var(--white);
@@ -39,8 +37,6 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
-
-/* Background texture */
 body::before {
   content: '';
   position: fixed;
@@ -52,439 +48,73 @@ body::before {
   pointer-events: none;
   z-index: 0;
 }
-
-.wrap {
-  position: relative;
-  z-index: 1;
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem 5rem;
-}
-
-/* Header */
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 3.5rem;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards;
-}
-.brand-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--amber);
-}
-.brand-name {
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--white-dim);
-}
-
-.hero {
-  margin-bottom: 3rem;
-  opacity: 0;
-  animation: fadeUp 0.6s ease 0.1s forwards;
-}
-.hero h1 {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(28px, 5vw, 42px);
-  font-weight: 400;
-  line-height: 1.15;
-  color: var(--white);
-  margin-bottom: 1rem;
-}
-.hero h1 em {
-  font-style: italic;
-  color: var(--amber);
-}
-.hero p {
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--white-dim);
-  max-width: 520px;
-}
-
-/* Divider */
-.divider {
-  border: none;
-  border-top: 0.5px solid var(--border-bright);
-  margin: 2rem 0;
-}
-
-/* Input card */
-.card {
-  background: var(--navy-mid);
-  border: 0.5px solid var(--border-bright);
-  border-radius: 16px;
-  padding: 1.75rem;
-  margin-bottom: 1rem;
-  opacity: 0;
-  animation: fadeUp 0.6s ease 0.2s forwards;
-}
-
-.card-title {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--amber);
-  margin-bottom: 1.5rem;
-}
-
+.wrap { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+.brand { display: flex; align-items: center; gap: 10px; margin-bottom: 3.5rem; opacity: 0; animation: fadeUp 0.6s ease forwards; }
+.brand-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); }
+.brand-name { font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-dim); }
+.hero { margin-bottom: 3rem; opacity: 0; animation: fadeUp 0.6s ease 0.1s forwards; }
+.hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 5vw, 42px); font-weight: 400; line-height: 1.15; color: var(--white); margin-bottom: 1rem; }
+.hero h1 em { font-style: italic; color: var(--amber); }
+.hero p { font-size: 15px; line-height: 1.7; color: var(--white-dim); max-width: 520px; }
+.divider { border: none; border-top: 0.5px solid var(--border-bright); margin: 2rem 0; }
+.card { background: var(--navy-mid); border: 0.5px solid var(--border-bright); border-radius: 16px; padding: 1.75rem; margin-bottom: 1rem; opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards; }
+.card-title { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); margin-bottom: 1.5rem; }
 .field { margin-bottom: 1.5rem; }
 .field:last-child { margin-bottom: 0; }
-
-.field label {
-  display: block;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--white);
-  margin-bottom: 6px;
-}
-.field .hint {
-  font-size: 12px;
-  color: var(--white-dimmer);
-  margin-top: 5px;
-  line-height: 1.5;
-}
-
-.input-wrap {
-  display: flex;
-  align-items: center;
-  background: var(--navy-light);
-  border: 0.5px solid var(--border-bright);
-  border-radius: 8px;
-  padding: 0 14px;
-  transition: border-color 0.2s;
-}
-.input-wrap:focus-within {
-  border-color: var(--amber);
-}
-.input-wrap span {
-  font-size: 14px;
-  color: var(--white-dimmer);
-  margin-right: 6px;
-}
-.input-wrap input[type="number"] {
-  background: transparent;
-  border: none;
-  outline: none;
-  color: var(--white);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  padding: 12px 0;
-  width: 100%;
-  -moz-appearance: textfield;
-}
-.input-wrap input::-webkit-outer-spin-button,
-.input-wrap input::-webkit-inner-spin-button { -webkit-appearance: none; }
-
-/* Slider */
-.slider-wrap {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.slider-wrap input[type="range"] {
-  flex: 1;
-  -webkit-appearance: none;
-  height: 3px;
-  background: var(--navy-light);
-  border-radius: 2px;
-  outline: none;
-  cursor: pointer;
-}
-.slider-wrap input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 18px; height: 18px;
-  border-radius: 50%;
-  background: var(--amber);
-  cursor: pointer;
-  border: 3px solid var(--navy-mid);
-  box-shadow: 0 0 0 1px var(--amber);
-  transition: transform 0.15s;
-}
-.slider-wrap input[type="range"]::-webkit-slider-thumb:hover {
-  transform: scale(1.2);
-}
-.slider-val {
-  min-width: 44px;
-  text-align: right;
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--amber);
-}
-
-/* City hints */
-.city-hints {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 8px;
-}
-.city-hint {
-  font-size: 11px;
-  padding: 3px 10px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.04);
-  border: 0.5px solid var(--border);
-  color: var(--white-dimmer);
-  cursor: pointer;
-  transition: all 0.15s;
-  font-family: 'DM Sans', sans-serif;
-}
-.city-hint:hover {
-  background: rgba(232,160,48,0.1);
-  border-color: var(--amber);
-  color: var(--amber);
-}
-
-/* Results */
-.results {
-  opacity: 0;
-  animation: fadeUp 0.6s ease 0.3s forwards;
-}
-
-.score-card {
-  background: var(--navy-mid);
-  border: 0.5px solid var(--border-bright);
-  border-radius: 16px;
-  padding: 2rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.score-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(232,160,48,0.08) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.score-label-top {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--white-dimmer);
-  margin-bottom: 0.5rem;
-}
-.score-number {
-  font-family: 'DM Serif Display', serif;
-  font-size: 80px;
-  line-height: 1;
-  color: var(--white);
-  transition: all 0.4s ease;
-  margin-bottom: 0.5rem;
-}
-.score-verdict {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 500;
-  padding: 4px 14px;
-  border-radius: 20px;
-  margin-bottom: 1.5rem;
-  transition: all 0.3s;
-}
-
-.metrics-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 1.5rem;
-}
-.metric {
-  background: rgba(255,255,255,0.04);
-  border-radius: 10px;
-  padding: 12px 8px;
-}
-.metric-v {
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--white);
-  margin-bottom: 3px;
-  transition: all 0.3s;
-}
-.metric-l {
-  font-size: 11px;
-  color: var(--white-dimmer);
-  line-height: 1.4;
-}
-
-/* Comparison bars */
-.compare-card {
-  background: var(--navy-mid);
-  border: 0.5px solid var(--border-bright);
-  border-radius: 16px;
-  padding: 1.75rem;
-  margin-bottom: 1rem;
-}
-.compare-title {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--white-dimmer);
-  margin-bottom: 1.25rem;
-}
-.bar-row {
-  display: grid;
-  grid-template-columns: 110px 1fr 72px;
-  gap: 10px;
-  align-items: center;
-  margin-bottom: 10px;
-}
+.field label { display: block; font-size: 13px; font-weight: 500; color: var(--white); margin-bottom: 6px; }
+.field .hint { font-size: 12px; color: var(--white-dimmer); margin-top: 5px; line-height: 1.5; }
+.input-wrap { display: flex; align-items: center; background: var(--navy-light); border: 0.5px solid var(--border-bright); border-radius: 8px; padding: 0 14px; transition: border-color 0.2s; }
+.input-wrap:focus-within { border-color: var(--amber); }
+.input-wrap span { font-size: 14px; color: var(--white-dimmer); margin-right: 6px; }
+.input-wrap input[type="number"] { background: transparent; border: none; outline: none; color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 400; padding: 12px 0; width: 100%; -moz-appearance: textfield; }
+.input-wrap input::-webkit-outer-spin-button, .input-wrap input::-webkit-inner-spin-button { -webkit-appearance: none; }
+.slider-wrap { display: flex; align-items: center; gap: 14px; }
+.slider-wrap input[type="range"] { flex: 1; -webkit-appearance: none; height: 3px; background: var(--navy-light); border-radius: 2px; outline: none; cursor: pointer; }
+.slider-wrap input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--amber); cursor: pointer; border: 3px solid var(--navy-mid); box-shadow: 0 0 0 1px var(--amber); transition: transform 0.15s; }
+.slider-wrap input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+.slider-val { min-width: 44px; text-align: right; font-size: 15px; font-weight: 500; color: var(--amber); }
+.city-hints { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.city-hint { font-size: 11px; padding: 3px 10px; border-radius: 20px; background: rgba(255,255,255,0.04); border: 0.5px solid var(--border); color: var(--white-dimmer); cursor: pointer; transition: all 0.15s; font-family: 'DM Sans', sans-serif; }
+.city-hint:hover { background: rgba(232,160,48,0.1); border-color: var(--amber); color: var(--amber); }
+.results { opacity: 0; animation: fadeUp 0.6s ease 0.3s forwards; }
+.score-card { background: var(--navy-mid); border: 0.5px solid var(--border-bright); border-radius: 16px; padding: 2rem; margin-bottom: 1rem; text-align: center; position: relative; overflow: hidden; }
+.score-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(232,160,48,0.08) 0%, transparent 70%); pointer-events: none; }
+.score-label-top { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-dimmer); margin-bottom: 0.5rem; }
+.score-number { font-family: 'DM Serif Display', serif; font-size: 80px; line-height: 1; color: var(--white); transition: all 0.4s ease; margin-bottom: 0.5rem; }
+.score-verdict { display: inline-block; font-size: 12px; font-weight: 500; padding: 4px 14px; border-radius: 20px; margin-bottom: 1.5rem; transition: all 0.3s; }
+.metrics-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 1.5rem; }
+.metric { background: rgba(255,255,255,0.04); border-radius: 10px; padding: 12px 8px; }
+.metric-v { font-size: 18px; font-weight: 500; color: var(--white); margin-bottom: 3px; transition: all 0.3s; }
+.metric-l { font-size: 11px; color: var(--white-dimmer); line-height: 1.4; }
+.compare-card { background: var(--navy-mid); border: 0.5px solid var(--border-bright); border-radius: 16px; padding: 1.75rem; margin-bottom: 1rem; }
+.compare-title { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-dimmer); margin-bottom: 1.25rem; }
+.bar-row { display: grid; grid-template-columns: 110px 1fr 72px; gap: 10px; align-items: center; margin-bottom: 10px; }
 .bar-row:last-child { margin-bottom: 0; }
 .bar-label { font-size: 12px; color: var(--white-dim); }
-.bar-track {
-  height: 6px;
-  background: rgba(255,255,255,0.06);
-  border-radius: 3px;
-  overflow: hidden;
-}
-.bar-fill {
-  height: 100%;
-  border-radius: 3px;
-  transition: width 0.7s cubic-bezier(0.4,0,0.2,1);
-}
+.bar-track { height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 3px; transition: width 0.7s cubic-bezier(0.4,0,0.2,1); }
 .bar-current { background: #378ADD; }
 .bar-abroad { background: var(--teal); }
-.bar-val {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--white);
-  text-align: right;
-}
-
-/* Insight */
-.insight-card {
-  background: rgba(29,158,117,0.08);
-  border: 0.5px solid rgba(29,158,117,0.25);
-  border-radius: 16px;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-}
-.insight-card p {
-  font-size: 14px;
-  line-height: 1.75;
-  color: var(--white-dim);
-}
+.bar-val { font-size: 13px; font-weight: 500; color: var(--white); text-align: right; }
+.insight-card { background: rgba(29,158,117,0.08); border: 0.5px solid rgba(29,158,117,0.25); border-radius: 16px; padding: 1.5rem; margin-bottom: 1rem; }
+.insight-card p { font-size: 14px; line-height: 1.75; color: var(--white-dim); }
 .insight-card strong { color: var(--white); font-weight: 500; }
-.insight-card .highlight {
-  color: var(--teal);
-  font-weight: 500;
-}
-
-/* CTA */
-.cta-card {
-  background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy-mid) 100%);
-  border: 0.5px solid var(--amber);
-  border-radius: 16px;
-  padding: 2rem;
-  text-align: center;
-}
-.cta-card h3 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 22px;
-  font-weight: 400;
-  color: var(--white);
-  margin-bottom: 0.75rem;
-  line-height: 1.3;
-}
-.cta-card p {
-  font-size: 14px;
-  color: var(--white-dim);
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-  max-width: 420px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.opt-form {
-  display: flex;
-  gap: 8px;
-  max-width: 400px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-}
-.opt-form input[type="email"],
-.opt-form input[type="text"] {
-  flex: 1;
-  min-width: 160px;
-  background: var(--navy);
-  border: 0.5px solid var(--border-bright);
-  border-radius: 8px;
-  padding: 12px 14px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  color: var(--white);
-  outline: none;
-  transition: border-color 0.2s;
-}
+.insight-card .highlight { color: var(--teal); font-weight: 500; }
+.cta-card { background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy-mid) 100%); border: 0.5px solid var(--amber); border-radius: 16px; padding: 2rem; text-align: center; }
+.cta-card h3 { font-family: 'DM Serif Display', serif; font-size: 22px; font-weight: 400; color: var(--white); margin-bottom: 0.75rem; line-height: 1.3; }
+.cta-card p { font-size: 14px; color: var(--white-dim); line-height: 1.7; margin-bottom: 1.5rem; max-width: 420px; margin-left: auto; margin-right: auto; }
+.opt-form { display: flex; gap: 8px; max-width: 400px; margin: 0 auto; flex-wrap: wrap; }
+.opt-form input[type="email"], .opt-form input[type="text"] { flex: 1; min-width: 160px; background: var(--navy); border: 0.5px solid var(--border-bright); border-radius: 8px; padding: 12px 14px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--white); outline: none; transition: border-color 0.2s; }
 .opt-form input:focus { border-color: var(--amber); }
 .opt-form input::placeholder { color: var(--white-dimmer); }
-
-.btn {
-  background: var(--amber);
-  color: var(--navy);
-  border: none;
-  border-radius: 8px;
-  padding: 12px 20px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background 0.2s, transform 0.15s;
-  letter-spacing: 0.02em;
-}
+.btn { background: var(--amber); color: var(--navy); border: none; border-radius: 8px; padding: 12px 20px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap; transition: background 0.2s, transform 0.15s; letter-spacing: 0.02em; }
 .btn:hover { background: var(--amber-dim); transform: translateY(-1px); }
 .btn:active { transform: translateY(0); }
-
-.cta-note {
-  font-size: 11px;
-  color: var(--white-dimmer);
-  margin-top: 10px;
-}
-
-/* Footer */
-.footer {
-  margin-top: 4rem;
-  padding-top: 1.5rem;
-  border-top: 0.5px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.footer-brand {
-  font-size: 12px;
-  color: var(--white-dimmer);
-  letter-spacing: 0.06em;
-}
-.footer-note {
-  font-size: 11px;
-  color: var(--white-dimmer);
-  max-width: 340px;
-  text-align: right;
-  line-height: 1.5;
-}
-
-/* Animations */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive */
+.cta-note { font-size: 11px; color: var(--white-dimmer); margin-top: 10px; }
+.footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 0.5px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.footer-brand { font-size: 12px; color: var(--white-dimmer); letter-spacing: 0.06em; }
+.footer-note { font-size: 11px; color: var(--white-dimmer); max-width: 340px; text-align: right; line-height: 1.5; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 500px) {
   .metrics-row { grid-template-columns: repeat(3,1fr); gap: 6px; }
   .metric-v { font-size: 15px; }
@@ -498,46 +128,29 @@ body::before {
 </style>
 </head>
 <body>
-
 <div class="wrap">
-
   <div class="brand">
     <div class="brand-dot"></div>
     <span class="brand-name">The Freedom Operator</span>
   </div>
-
   <div class="hero">
     <h1>Your <em>Freedom Score</em><br>starts here.</h1>
     <p>The single calculation that shows the gap between your current wealth trajectory — and what becomes possible when you combine remote income with geographic arbitrage.</p>
   </div>
-
-  <!-- INPUTS -->
   <div class="card">
     <div class="card-title">Your numbers</div>
-
     <div class="field">
       <label>Annual gross income (USD)</label>
-      <div class="input-wrap">
-        <span>$</span>
-        <input type="number" id="income" value="90000" min="20000" max="500000" step="1000" oninput="calc()">
-      </div>
+      <div class="input-wrap"><span>$</span><input type="number" id="income" value="90000" min="20000" max="500000" step="1000" oninput="calc()"></div>
     </div>
-
     <div class="field">
       <label>Monthly expenses — current city</label>
-      <div class="input-wrap">
-        <span>$</span>
-        <input type="number" id="expenses" value="5800" min="500" max="20000" step="100" oninput="calc()">
-      </div>
+      <div class="input-wrap"><span>$</span><input type="number" id="expenses" value="5800" min="500" max="20000" step="100" oninput="calc()"></div>
       <p class="hint">Rent, food, transport, subscriptions, entertainment — everything.</p>
     </div>
-
     <div class="field">
       <label>Monthly expenses — target city abroad</label>
-      <div class="input-wrap">
-        <span>$</span>
-        <input type="number" id="abroadexp" value="1500" min="300" max="8000" step="50" oninput="calc()">
-      </div>
+      <div class="input-wrap"><span>$</span><input type="number" id="abroadexp" value="1500" min="300" max="8000" step="50" oninput="calc()"></div>
       <div class="city-hints">
         <button class="city-hint" onclick="setCity(1300)">Warsaw $1,300</button>
         <button class="city-hint" onclick="setCity(1600)">Lisbon $1,600</button>
@@ -547,7 +160,6 @@ body::before {
         <button class="city-hint" onclick="setCity(1500)">Barcelona $1,500</button>
       </div>
     </div>
-
     <div class="field">
       <label>Expected annual investment return</label>
       <div class="slider-wrap">
@@ -557,62 +169,27 @@ body::before {
       <p class="hint">S&P 500 historical average: ~7% real return. Conservative: 5%. Optimistic: 9%.</p>
     </div>
   </div>
-
-  <!-- RESULTS -->
   <div class="results">
-
     <div class="score-card">
       <div class="score-label-top">Your Freedom Score™</div>
       <div class="score-number" id="score-num">—</div>
       <div><span class="score-verdict" id="score-verdict"></span></div>
       <div class="metrics-row">
-        <div class="metric">
-          <div class="metric-v" id="m-cursave">—</div>
-          <div class="metric-l">Current monthly savings</div>
-        </div>
-        <div class="metric">
-          <div class="metric-v" id="m-abroadsave">—</div>
-          <div class="metric-l">Abroad monthly savings</div>
-        </div>
-        <div class="metric">
-          <div class="metric-v" id="m-gain">—</div>
-          <div class="metric-l">Annual wealth gain</div>
-        </div>
+        <div class="metric"><div class="metric-v" id="m-cursave">—</div><div class="metric-l">Current monthly savings</div></div>
+        <div class="metric"><div class="metric-v" id="m-abroadsave">—</div><div class="metric-l">Abroad monthly savings</div></div>
+        <div class="metric"><div class="metric-v" id="m-gain">—</div><div class="metric-l">Annual wealth gain</div></div>
       </div>
     </div>
-
     <div class="compare-card">
       <div class="compare-title">Savings rate — current vs. abroad</div>
-      <div class="bar-row">
-        <span class="bar-label">Current path</span>
-        <div class="bar-track"><div class="bar-fill bar-current" id="bar-cur" style="width:10%"></div></div>
-        <span class="bar-val" id="bar-cur-val">—</span>
-      </div>
-      <div class="bar-row">
-        <span class="bar-label">Abroad path</span>
-        <div class="bar-track"><div class="bar-fill bar-abroad" id="bar-abr" style="width:50%"></div></div>
-        <span class="bar-val" id="bar-abr-val">—</span>
-      </div>
-
+      <div class="bar-row"><span class="bar-label">Current path</span><div class="bar-track"><div class="bar-fill bar-current" id="bar-cur" style="width:10%"></div></div><span class="bar-val" id="bar-cur-val">—</span></div>
+      <div class="bar-row"><span class="bar-label">Abroad path</span><div class="bar-track"><div class="bar-fill bar-abroad" id="bar-abr" style="width:50%"></div></div><span class="bar-val" id="bar-abr-val">—</span></div>
       <hr style="border:none;border-top:0.5px solid rgba(255,255,255,0.06);margin:1.25rem 0">
-
       <div class="compare-title">10-year wealth projection</div>
-      <div class="bar-row">
-        <span class="bar-label">Current path</span>
-        <div class="bar-track"><div class="bar-fill bar-current" id="bar-10cur" style="width:20%"></div></div>
-        <span class="bar-val" id="bar-10cur-val">—</span>
-      </div>
-      <div class="bar-row">
-        <span class="bar-label">Abroad path</span>
-        <div class="bar-track"><div class="bar-fill bar-abroad" id="bar-10abr" style="width:60%"></div></div>
-        <span class="bar-val" id="bar-10abr-val">—</span>
-      </div>
+      <div class="bar-row"><span class="bar-label">Current path</span><div class="bar-track"><div class="bar-fill bar-current" id="bar-10cur" style="width:20%"></div></div><span class="bar-val" id="bar-10cur-val">—</span></div>
+      <div class="bar-row"><span class="bar-label">Abroad path</span><div class="bar-track"><div class="bar-fill bar-abroad" id="bar-10abr" style="width:60%"></div></div><span class="bar-val" id="bar-10abr-val">—</span></div>
     </div>
-
-    <div class="insight-card">
-      <p id="insight-text">Enter your numbers above to see your personalized insight.</p>
-    </div>
-
+    <div class="insight-card"><p id="insight-text">Enter your numbers above to see your personalized insight.</p></div>
     <div class="cta-card">
       <h3>Ready to close the gap?</h3>
       <p>Get the full Cross-Border Freedom Framework™ — the 6-phase system for remote income, strategic relocation, and wealth building — delivered to your inbox.</p>
@@ -623,118 +200,69 @@ body::before {
       </form>
       <p class="cta-note">No spam. Unsubscribe anytime. Your data is never sold.</p>
     </div>
-
   </div>
-
   <footer class="footer">
     <span class="footer-brand">THE FREEDOM OPERATOR</span>
     <span class="footer-note">This tool provides illustrative projections only. All figures are estimates. Consult a financial professional before making investment decisions.</span>
   </footer>
-
 </div>
-
 <script>
-function fmt(n){
-  return '$' + Math.round(Math.abs(n)).toLocaleString();
-}
-function fmtK(n){
-  const r = Math.round(n);
-  if(Math.abs(r) >= 1000000) return '$' + (r/1000000).toFixed(1) + 'M';
-  if(Math.abs(r) >= 1000) return '$' + (r/1000).toFixed(0) + 'K';
-  return '$' + r;
-}
-function compound(monthly, years, rate){
-  if(monthly <= 0) return 0;
-  const r = rate / 12;
-  return monthly * ((Math.pow(1+r, years*12) - 1) / r);
-}
-
-function setCity(val){
-  document.getElementById('abroadexp').value = val;
-  calc();
-}
-
+function fmt(n){ return '$' + Math.round(Math.abs(n)).toLocaleString(); }
+function fmtK(n){ const r = Math.round(n); if(Math.abs(r) >= 1000000) return '$' + (r/1000000).toFixed(1) + 'M'; if(Math.abs(r) >= 1000) return '$' + (r/1000).toFixed(0) + 'K'; return '$' + r; }
+function compound(monthly, years, rate){ if(monthly <= 0) return 0; const r = rate / 12; return monthly * ((Math.pow(1+r, years*12) - 1) / r); }
+function setCity(val){ document.getElementById('abroadexp').value = val; calc(); }
 function calc(){
   const income = parseFloat(document.getElementById('income').value) || 90000;
   const expenses = parseFloat(document.getElementById('expenses').value) || 5800;
   const abroadExp = parseFloat(document.getElementById('abroadexp').value) || 1500;
   const returns = parseFloat(document.getElementById('returns').value) || 7;
-
   document.getElementById('returns-out').textContent = returns.toFixed(1) + '%';
-
   const takeHome = income * 0.72;
   const takeHomeMonthly = takeHome / 12;
-
   const curSaveRate = Math.max(0, (takeHomeMonthly - expenses) / takeHomeMonthly * 100);
   const curSave = Math.max(0, takeHomeMonthly - expenses);
   const abroadSave = Math.max(0, takeHomeMonthly - abroadExp);
   const abroadSaveRate = Math.min(95, (abroadSave / takeHomeMonthly) * 100);
   const annualGain = (abroadSave - curSave) * 12;
-
   const score = Math.min(99, Math.max(1, Math.round(abroadSaveRate * 1.05)));
-
   const w10cur = compound(curSave, 10, returns/100);
   const w10abr = compound(abroadSave, 10, returns/100);
   const diff = w10abr - w10cur;
-
-  // Score number
   document.getElementById('score-num').textContent = score;
-
-  // Verdict
   const verdict = document.getElementById('score-verdict');
   let vText, vBg, vColor;
   if(score >= 70){ vText='Strong operator'; vBg='rgba(29,158,117,0.15)'; vColor='#1d9e75'; }
   else if(score >= 50){ vText='Good foundation'; vBg='rgba(232,160,48,0.15)'; vColor='#e8a030'; }
   else if(score >= 30){ vText='Significant opportunity'; vBg='rgba(55,138,221,0.15)'; vColor='#378ADD'; }
   else { vText='Urgency is warranted'; vBg='rgba(192,57,43,0.15)'; vColor='#c0392b'; }
-  verdict.textContent = vText;
-  verdict.style.background = vBg;
-  verdict.style.color = vColor;
-
-  // Metrics
+  verdict.textContent = vText; verdict.style.background = vBg; verdict.style.color = vColor;
   document.getElementById('m-cursave').textContent = fmt(curSave) + '/mo';
   document.getElementById('m-abroadsave').textContent = fmt(abroadSave) + '/mo';
   document.getElementById('m-gain').textContent = fmt(Math.max(0,annualGain)) + '/yr';
-
-  // Bars — savings rate
   const maxRate = Math.max(abroadSaveRate, curSaveRate, 1);
   document.getElementById('bar-cur').style.width = Math.max(2, (curSaveRate/maxRate)*95) + '%';
   document.getElementById('bar-cur-val').textContent = Math.round(curSaveRate) + '%';
   document.getElementById('bar-abr').style.width = Math.max(2, (abroadSaveRate/maxRate)*95) + '%';
   document.getElementById('bar-abr-val').textContent = Math.round(abroadSaveRate) + '%';
-
-  // Bars — 10yr
   const max10 = Math.max(w10abr, w10cur, 1);
   document.getElementById('bar-10cur').style.width = Math.max(2, (w10cur/max10)*90 + 5) + '%';
   document.getElementById('bar-10cur-val').textContent = fmtK(w10cur);
   document.getElementById('bar-10abr').style.width = Math.max(2, (w10abr/max10)*90 + 5) + '%';
   document.getElementById('bar-10abr-val').textContent = fmtK(w10abr);
-
-  // Insight
   let insight = '';
-  if(abroadSave > 0 && diff > 0){
-    insight = `At your current savings rate of <strong>${Math.round(curSaveRate)}%</strong>, you're building <strong>${fmt(curSave)}/month</strong> in wealth. On the abroad path, your savings rate rises to <strong class="highlight">${Math.round(abroadSaveRate)}%</strong> — that's <strong class="highlight">${fmt(abroadSave)}/month</strong> compounding. Over 10 years, the difference is approximately <strong class="highlight">${fmtK(diff)}</strong> in additional wealth — on the exact same income. The variable isn't your salary. It's your cost base.`;
-  } else if(abroadSave <= 0){
-    insight = `Your abroad expense estimate exceeds your take-home pay. Try selecting a lower-cost city above, or adjusting your income. Most expat-friendly cities with strong infrastructure run $900–$1,800/month all-in.`;
-  } else {
-    insight = `Your current savings rate is already strong. The abroad path still extends your compounding runway significantly — enter your numbers to see the full projection.`;
-  }
+  if(abroadSave > 0 && diff > 0){ insight = `At your current savings rate of <strong>${Math.round(curSaveRate)}%</strong>, you're building <strong>${fmt(curSave)}/month</strong> in wealth. On the abroad path, your savings rate rises to <strong class="highlight">${Math.round(abroadSaveRate)}%</strong> — that's <strong class="highlight">${fmt(abroadSave)}/month</strong> compounding. Over 10 years, the difference is approximately <strong class="highlight">${fmtK(diff)}</strong> in additional wealth — on the exact same income. The variable isn't your salary. It's your cost base.`; }
+  else if(abroadSave <= 0){ insight = `Your abroad expense estimate exceeds your take-home pay. Try selecting a lower-cost city above, or adjusting your income. Most expat-friendly cities with strong infrastructure run $900–$1,800/month all-in.`; }
+  else { insight = `Your current savings rate is already strong. The abroad path still extends your compounding runway significantly — enter your numbers to see the full projection.`; }
   document.getElementById('insight-text').innerHTML = insight;
 }
-
 function handleSubmit(e){
   e.preventDefault();
-  // Replace the action below with your Beehiiv embed form URL or redirect
   const name = document.getElementById('opt-name').value;
   const email = document.getElementById('opt-email').value;
-  // TODO: Replace this URL with your actual Beehiiv subscribe endpoint
-  const beehiivUrl = 'https://app.beehiiv.com/subscribe'; // UPDATE THIS
+  const beehiivUrl = 'https://app.beehiiv.com/subscribe/3e97eedf-2bae-4e98-b757-1a57e24d857a';
   window.location.href = beehiivUrl + '?email=' + encodeURIComponent(email) + '&first_name=' + encodeURIComponent(name);
 }
-
-// Init on load
 calc();
 </script>
-
 </body>
 </html>
