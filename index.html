@@ -259,7 +259,7 @@ function handleSubmit(e){
   e.preventDefault();
   const name = document.getElementById('opt-name').value;
   const email = document.getElementById('opt-email').value;
-  const beehiivUrl = 'https://app.beehiiv.com/subscribe/3e97eedf-2bae-4e98-b757-1a57e24d857a';
+  const beehiivUrl = 'https://embeds.beehiiv.com/3e97eedf-2bae-4e98-b757-1a57e24d857a';
   window.location.href = beehiivUrl + '?email=' + encodeURIComponent(email) + '&first_name=' + encodeURIComponent(name);
 }
 calc();
